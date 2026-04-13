@@ -1,0 +1,124 @@
+body {
+    background:linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    font-family: arial, sans-serif;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenernedor del juego */
+
+#game {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 30px;
+    margin: 40px auto;
+    width: 350px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0, 0.5);
+}
+
+/* Titulo */
+
+h1 {
+    margin-top: 20px;
+    font-size: 32px;
+    text-shadow: 2px 2px 8px black;
+}
+
+/* Botones */
+
+
+button { 
+    background: #ff9800;
+    border: none;
+    padding: 12px 18px;
+    margin: 8px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background: #ffc107;
+    transform: scale(1.1);
+}
+
+/* Botón de reiniciar */
+
+#btnReiniciar {
+    background: #e91e63;
+}
+
+/* Panel de resultados */
+
+#resultados {
+    font-size: 20px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* animación cuando se hace clic en un botón */
+button:active {
+    transform: scale(0.95);
+}
+
+/* Animacion personalizada */
+.animar {
+    animation: saltar 0.3s ease;
+}
+@keyframes saltar {
+    0% { transform: translateY(1); }
+    50% { transform: translateY(1.2); }
+    100% { transform: translateY(1); }
+    
+}
+
+.ganar {
+    color: #4CAF50;
+    animation: brillar 0.5s ease;
+}
+
+    .perder {
+        color: #f44336;
+        animation: brillar 0.5s ease;
+}
+
+.empatar {
+    color: #ffeb3b;
+}
+
+@keyframes brillar {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+/* Boton volver */
+
+.btnBack {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 16px;
+    color: #ffe8c7;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    border: 1px solid rgba(255, 152, 0, 0.55);
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.2), rgba(233, 30, 99, 0.08));
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 12px rgba(255, 152, 0, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.btnBack:hover {
+    transform: translateY(-1px);
+    border-color: rgba(255, 193, 7, 0.85);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35), 0 0 18px rgba(255, 193, 7, 0.35);
+}
+
+.btnBack:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.28), 0 0 10px rgba(255, 152, 0, 0.25);
+}

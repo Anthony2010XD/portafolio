@@ -1,0 +1,44 @@
+/* Simple styles for the Games categories page */
+:root{
+	--bg:#f7f7fb;
+	--card:#ffffff;
+	--accent:#4f46e5;
+	--muted:#6b7280;
+}
+.html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial}
+body{background:radial-gradient(circle at center, #ff4d4d 0%, #4caf50 100%);background-attachment:fixed;display:flex;align-items:flex-start;justify-content:center;padding:40px}
+.container{width:100%;max-width:760px;background:var(--card);border-radius:12px;padding:28px;box-shadow:0 20px 40px rgba(2,6,23,0.18)}
+header h1{margin:0;font-size:28px}
+.subtitle{color:var(--muted);margin-top:6px}
+.categories{display:flex;gap:12px;margin:18px 0 12px}
+.category-btn{background:transparent;border:2px solid rgba(255,255,255,0.12);padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:700;color:#fff;transition:filter .18s,transform .18s,background .18s}
+.category-btn:hover{transform:none;filter:brightness(1.06)}
+.category-btn.active{border-color:transparent}
+
+/* Colores por categoría (in order: Disparos, Supervivencia, Populares) */
+.categories .category-btn:nth-child(1){background:linear-gradient(90deg,#ff6b6b,#ef4444)}
+.categories .category-btn:nth-child(2){background:linear-gradient(90deg,#34d399,#16a34a)}
+.categories .category-btn:nth-child(3){background:linear-gradient(90deg,#ffb86b,#f97316)}
+
+/* Al estar activos, intensificamos el color y aseguramos texto claro */
+.categories .category-btn.active:nth-child(1){background:linear-gradient(90deg,#ff4d4d,#dc2626);color:#fff}
+.categories .category-btn.active:nth-child(2){background:linear-gradient(90deg,#22c55e,#15803d);color:#fff}
+.categories .category-btn.active:nth-child(3){background:linear-gradient(90deg,#ff9a3c,#ea580c);color:#fff}
+
+/* Pulsing animation for buttons (subtle) */
+@keyframes pulse {
+	0% { transform: scale(1); box-shadow: 0 6px 12px rgba(79,70,229,0.06); }
+	50% { transform: scale(1.04); box-shadow: 0 14px 28px rgba(79,70,229,0.12); }
+	100% { transform: scale(1); box-shadow: 0 6px 12px rgba(79,70,229,0.06); }
+}
+.category-btn{animation: pulse 3.2s ease-in-out infinite;}
+/* Pause the pulsing when hovered or active for a simple hover effect */
+.category-btn:hover,
+.category-btn.active{animation-play-state:paused}
+.description{padding:14px;border-radius:8px;background:#fbfbff;border:1px solid #eef0ff}
+.description h2{margin:0 0 8px}
+.how{margin-top:16px;color:var(--muted);font-size:14px}
+.how code{background:#f3f4f6;padding:2px 6px;border-radius:4px}
+
+@media (max-width:480px){.categories{flex-direction:column}}
+
