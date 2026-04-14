@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Hola Mundo Épico</title>
+        <script>
+            function openPortal() {
+                const portal = document.querySelector('.portal');
+                const message = document.getElementById('message');
+                portal.classList.add('open');
+                setTimeout(() => {
+                    message.classList.add('show');
+                }, 1000);
+            }
+        </script>
+        <style>
+            body {
+                margin: 0;
+                background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                font-family: 'Segoe UI', sans-serif;
+                }
+
+                .portal {
+                width: 300px;
+                height: 300px;
+                background: radial-gradient(circle, #fff, #aaa);
+                border-radius: 50%;
+                position: relative;
+                cursor: pointer;
+                box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+                animation: pulse 2s infinite;
+                }
+
+                .portal::before, .portal::after {
+                content: '';
+                position: absolute;
+                width: 50%;
+                height: 100%;
+                top: 0;
+                background: #222;
+                transition: all 1s ease;
+                }
+
+                .portal::before {
+                left: 0;
+                border-top-left-radius: 50%;
+                border-bottom-left-radius: 50%;
+                }
+
+                .portal::after {
+                right: 0;
+                border-top-right-radius: 50%;
+                border-bottom-right-radius: 50%;
+                }
+
+                .portal.open::before {
+                transform: translateX(-100%);
+                }
+
+                .portal.open::after {
+                transform: translateX(100%);
+                }
+
+                #message {
+                position: absolute;
+                color: #00ffcc;
+                font-size: 2rem;
+                font-weight: bold;
+                text-align: center;
+                opacity: 0;
+                transition: opacity 2s ease;
+                animation: glow 1s infinite alternate;
+                }
+
+                #message.show {
+                opacity: 1;
+                }
+
+                @keyframes pulse {
+                0% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); }
+                100% { box-shadow: 0 0 40px rgba(255, 255, 255, 0.6); }
+                }
+
+                @keyframes glow {
+                from { text-shadow: 0 0 5px #00ffcc; }
+                to { text-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc; }
+                }
+                .btnback {
+                      position: absolute;
+                    top: 30px;
+                    left: 30px;
+                    padding: 10px 16px;
+                    color: #e9f7f3;
+                    text-decoration: none;
+                    font-weight: 600;
+                    letter-spacing: 0.2px;
+                    border: 1px solid rgba(0, 255, 204, 0.35);
+                    border-radius: 999px;
+                    background: linear-gradient(135deg, rgba(0, 255, 204, 0.12), rgba(0, 255, 204, 0.02));
+                    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25), 0 0 12px rgba(0, 255, 204, 0.2);
+                    backdrop-filter: blur(6px);
+                    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+                }
+
+                .btnBack:hover{
+                    transform: translateY(-1px);
+                    border-color: rgba(0, 255, 204, 0.7);
+                    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), 0 0 18px rgba(0, 255, 204, 0.35);
+                }
+
+                .btnBack:active{
+                    transform: translateY(0);
+                    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.28), 0 0 10px rgba(0, 255, 204, 0.25);
+                }
+        </style>
+    </head>
+    <body>
+        <a class="btnback" href="../../index.html">← Volver al portafolio</a>
+        <div class="portal" onclick="openPortal()">
+            <div id="message">¡Hola, Mundo Épico!</div> 
+        </div>
+    </body>
+</html>
